@@ -9,6 +9,7 @@ class Feed extends Component {
         <Text style={styles.title}>Navigation Drawer</Text>
           <Button
             title='Go to feed item'
+            onPress={() => this.props.navigation.navigate('Detail')}
           />
       </View>
     )
