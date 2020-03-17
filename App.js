@@ -27,18 +27,39 @@ export default class App extends Component {
   createHomeStack = () => {
     return (
       <Stack.Navigator>
-        <Stack.Screen name="Feed" component={Feed}/>
-        <Stack.Screen name="Detail" component={Detail}/>
+        <Stack.Screen 
+          name="Feed" 
+          component={Feed}
+          options={{ 
+            title: "My Feed", 
+            headerStyle: { backgroundColor: 'black'},
+            headerTintColor: 'white'
+          }}
+        />
+        <Stack.Screen 
+          name="Detail" 
+          component={Detail}
+          options={{ 
+            title: "My Feed", 
+            headerStyle: { backgroundColor: '#BADA22'},
+            headerTintColor: 'black'
+          }}
+        />
         <Stack.Screen name="Top Tabs" children={this.createTopTabs}/>
         <Stack.Screen name="Bottom Tabs" children={this.createBottomTabs}/>
       </Stack.Navigator>
     )
   }
 
-  createTopTabs = () => {
+  createTopTabs = (props) => {
+    console.log(props)
     return (
       <MaterialTopTabs.Navigator>
-        <MaterialTopTabs.Screen name="Tab 1" component={Tab1} />
+        <MaterialTopTabs.Screen 
+          name="Tab 1" 
+          component={Tab1}
+          options={{ title: props.route.params.name }}
+        />
         <MaterialTopTabs.Screen name="Tab 2" component={Tab2} />
         <MaterialTopTabs.Screen name="Tab 3" component={Tab3} />
       </MaterialTopTabs.Navigator>
